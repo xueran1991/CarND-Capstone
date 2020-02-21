@@ -22,7 +22,7 @@ class Controller(object):
         mx = 0.2 # Max throttle value
 
         self.throttle_controller = PID(kp,ki,kd,mn,mx)
-        tau = 0.5 # 1/(2pi*tau)  = cutoff frequency
+        tau = 0.5  # 1/(2pi*tau) = cutoff frequency
         ts = 0.02  # Sample time
         self.vel_lpf = LowPassFilter(tau, ts)
 
@@ -35,7 +35,7 @@ class Controller(object):
         self.last_time = rospy.get_time()
         
 
-    def control(self, current_vel, dbw_enabled, linear_vel, angular_vel):
+    def control(self, dbw_enabled, current_vel, linear_vel, angular_vel):
         # TODO: Change the arg, kwarg list to suit your needs
         # Return throttle, brake, steer
         
